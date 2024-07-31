@@ -32,4 +32,8 @@ public class Utility extends BaseSetup {
     public String getElementText(By locator) {
         return waitToBeVisible(locator).getText();
     }
+
+    public boolean isEnabled(By locator){
+        return waitToBeVisible(locator).isEnabled();
+    }
 }

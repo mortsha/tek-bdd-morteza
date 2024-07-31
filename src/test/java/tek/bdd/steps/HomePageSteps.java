@@ -8,21 +8,16 @@ import tek.bdd.utility.Utility;
 
 
 public class HomePageSteps extends Utility {
-    @Given("open browser and navigate to retail app")
-    public void openBrowserAndNavigate() {
-        setupBrowser();
-    }
-
     @Then("validate the top left corner TEKSCHOOL")
     public void validateTopLogo() {
         String title = getElementText(By.linkText("TEKSCHOOL"));
         System.out.println(title);
-        System.out.println("Any thing");
-        Assert.assertEquals("TEKSCHOOL",title);
+        Assert.assertEquals("TEKSCHOOL", title);
     }
 
-    @Then("close the browser")
-    public void closeBrowser() {
-        quitBrowser();
+    @Then("validate sign in button is Enabled")
+    public void validateSignInButton(){
+        boolean isSignInEnabled =  isEnabled(By.id("signinLink"));
+        Assert.assertTrue(isSignInEnabled);
     }
 }

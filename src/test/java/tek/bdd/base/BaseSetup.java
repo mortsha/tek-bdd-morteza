@@ -22,8 +22,6 @@ public class BaseSetup {
     }
 
 
-
-
     public void quitBrowser(){
         if(driver!=null){
             driver.quit();
