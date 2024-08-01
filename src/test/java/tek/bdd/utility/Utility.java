@@ -33,7 +33,11 @@ public class Utility extends BaseSetup {
         return waitToBeVisible(locator).getText();
     }
 
-    public boolean isEnabled(By locator){
+    public boolean isElementEnabled(By locator){
         return waitToBeVisible(locator).isEnabled();
+    }
+
+    public boolean isElementDisplayed(By locator){
+        return waitToBeVisible(locator).isDisplayed();
     }
 }
