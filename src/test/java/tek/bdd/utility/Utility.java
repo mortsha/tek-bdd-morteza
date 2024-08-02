@@ -13,11 +13,11 @@ public class Utility extends BaseSetup {
     private WebDriverWait getWait() {
         return new WebDriverWait(getDriver(), Duration.ofSeconds(15));
     }
-    public WebElement waitToBeClickable(By locator) {
+    private WebElement waitToBeClickable(By locator) {
         return getWait().until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public WebElement waitToBeVisible(By locator) {
+    private WebElement waitToBeVisible(By locator) {
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
 
     }
@@ -28,6 +28,7 @@ public class Utility extends BaseSetup {
     public void sendText(By locator, String text) {
         waitToBeVisible(locator).sendKeys(text);
     }
+
 
     public String getElementText(By locator) {
         return waitToBeVisible(locator).getText();

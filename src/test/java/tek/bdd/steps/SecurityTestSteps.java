@@ -33,7 +33,6 @@ public class SecurityTestSteps extends Utility {
         Assert.assertTrue(isElementDisplayed(HomePage.ACCOUNT_LINK));
     }
 
-
     @Then("user should be able to see {string} error message")
     public void userShouldBeAbleToSeeErrorMessage(String expectedErrorMessage) {
             String actualErrorMessage = getElementText(SignInPage.ERROR_MESSAGE);

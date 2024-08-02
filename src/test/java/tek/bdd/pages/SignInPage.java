@@ -9,5 +9,7 @@ public class SignInPage {
     public static final By PASSWORD_INPUT = By.id("password");
     public static final By LOGIN_BTN = By.xpath("//button[text()='Login']");
 
-    public static final By ERROR_MESSAGE = By.xpath("//div[contains(text(),'wrong username')]");
+    public static final By ERROR_MESSAGE = By.className("error");
+
+    public static final By CREATE_NEW_ACCOUNT = By.id("newAccountBtn");
 }
