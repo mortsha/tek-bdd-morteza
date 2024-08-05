@@ -5,6 +5,7 @@ Feature: Security test with valid and invalid credentials
     Then validate the top left corner "TEKSCHOOL"
     When user click on sign in link
     Then validate user is in "Sign in" page
+    Then validate user is in Sign in page
 
   @positive
   Scenario: Navigate to sign in page with valid credentials and success login
