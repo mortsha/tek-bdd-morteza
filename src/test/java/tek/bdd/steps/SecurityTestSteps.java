@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import tek.bdd.pages.HomePage;
 import tek.bdd.pages.SignInPage;
+import tek.bdd.pages.SignUpPage;
 import tek.bdd.utility.Utility;
 
 public class SecurityTestSteps extends Utility {
@@ -16,9 +17,15 @@ public class SecurityTestSteps extends Utility {
     }
 
     @Then("validate user is in {string} page")
-    public void validateUserIsInPage(String expectedSignInText) {
-        String actualSignInText = getElementText(SignInPage.SIGN_IN_PAGE_SUBTITLE);
-        Assert.assertEquals(expectedSignInText,actualSignInText);
+    public void validateUserIsInPage(String expectedString) {
+        if(expectedString.equals("Sign in")){
+            String actualSignInText = getElementText(SignInPage.SIGN_IN_PAGE_SUBTITLE);
+            Assert.assertEquals(expectedString,actualSignInText);
+        } else if(expectedString.equals("Sign Up")){
+            String actualSignUpTitle = getElementText(SignUpPage.SIGN_UP_SUBTITLE);
+            Assert.assertEquals(expectedString,actualSignUpTitle);
+        }
+
     }
 
     @When("user enter {string} and {string} and click on login")

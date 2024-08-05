@@ -17,14 +17,6 @@ public class CreateAccountSteps extends Utility {
        clickOnElement(SignInPage.CREATE_NEW_ACCOUNT);
     }
 
-
-    @Then("validate the user is in {string} page")
-    public void validateTheUserIsInPage(String expectedSignUpTitle) {
-        String actualSignUpTitle = getElementText(SignUpPage.SIGN_UP_SUBTITLE);
-        Assert.assertEquals(expectedSignUpTitle,actualSignUpTitle);
-
-    }
-
     @When("user enter {string} {string} {string} {string} and click on Sign Up")
     public void userEnterAndClickOnSignUp(String name, String email, String password, String confirmPass) {
         randomEmailGenerated =EmailGenerator.getEmail(name);
@@ -37,10 +29,9 @@ public class CreateAccountSteps extends Utility {
 
     }
 
-    @Then("validate user email created")
-    public void validateUserEmailCreated() {
+    @Then("validate email created")
+    public void validateEmailCreated() throws InterruptedException {
         String actualProfileEmail = getElementText(ProfilePage.PROFILE_EMAIL);
         Assert.assertEquals(randomEmailGenerated,actualProfileEmail);
     }
-
 }
