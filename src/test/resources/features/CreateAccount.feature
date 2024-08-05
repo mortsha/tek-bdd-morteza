@@ -10,4 +10,4 @@ Feature: Create new account in Retail app and validate
     When user click on Create New Account button
     Then validate user is in "Sign Up" page
     When user enter "Morteza" "mory.sh@gmail.com" "Anything@123" "Anything@123" and click on Sign Up
-    Then validate email created
+    Then validate account successfully created

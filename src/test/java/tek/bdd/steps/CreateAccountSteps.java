@@ -28,10 +28,10 @@ public class CreateAccountSteps extends Utility {
 
 
     }
-
-    @Then("validate email created")
-    public void validateEmailCreated() throws InterruptedException {
+    @Then("validate account successfully created")
+    public void validateAccountSuccessfullyCreated() {
         String actualProfileEmail = getElementText(ProfilePage.PROFILE_EMAIL);
         Assert.assertEquals(randomEmailGenerated,actualProfileEmail);
     }
+
 }
