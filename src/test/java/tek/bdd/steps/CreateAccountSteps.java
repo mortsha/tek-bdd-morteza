@@ -34,4 +34,20 @@ public class CreateAccountSteps extends Utility {
         Assert.assertEquals(randomEmailGenerated,actualProfileEmail);
     }
 
+
+    @When("user enter existing data {string} {string} {string} {string} and click on Sign Up")
+    public void userEnterExistingDataAndClickOnSignUp(String name, String email, String password, String confirmPass) {
+        sendText(SignUpPage.NAME_INPUT_SING_UP,name);
+        sendText(SignUpPage.EMAIL_INPUT, email);
+        sendText(SignUpPage.PASSWORD_INPUT,password);
+        sendText(SignUpPage.CONFIRM_PASS_INPUT,confirmPass);
+        clickOnElement(SignUpPage.SIGN_UP_BUTTON);
+    }
+    @Then("user should see {string} error message")
+    public void userShouldSeeErrorMessage(String expectedErrorMessage) {
+        String actualErrorMessage = getElementText(SignUpPage.SIGN_UP_ERROR_MESSAGE);
+        Assert.assertEquals(expectedErrorMessage,actualErrorMessage);
+        System.out.println(actualErrorMessage);
+    }
+
 }

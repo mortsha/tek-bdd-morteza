@@ -12,4 +12,6 @@ public class SignUpPage {
     public static final By CONFIRM_PASS_INPUT = By.id("confirmPasswordInput");
 
     public static final By SIGN_UP_BUTTON = By.xpath("//button[text()='Sign Up']");
+
+    public static final By SIGN_UP_ERROR_MESSAGE = By.className("error");
 }
