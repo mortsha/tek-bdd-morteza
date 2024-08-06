@@ -11,11 +11,6 @@ import tek.bdd.utility.Utility;
 
 public class SecurityTestSteps extends Utility {
 
-    @When("user click on sign in link")
-    public void userClickOnSignInLink() {
-        clickOnElement(HomePage.SIGN_IN_LINK);
-    }
-
     @Then("validate user is in {string} page")
     public void validateUserIsInPage(String expectedString) {
         if(expectedString.equals("Sign in")){
@@ -28,13 +23,12 @@ public class SecurityTestSteps extends Utility {
 
     }
 
-    @When("user enter {string} and {string} and click on login")
-    public void userEnterAndAndClickOnLogin(String username, String password) {
+    @When("user enter {string} and {string}")
+    public void userEnterAnd(String username, String password) {
         sendText(SignInPage.EMAIL_INPUT,username);
         sendText(SignInPage.PASSWORD_INPUT,password);
-        clickOnElement(By.xpath("//button[text()='Login']"));
-
     }
+
     @Then("user should be able to see {string} link")
     public void userShouldBeAbleToSeeLink(String string) {
         Assert.assertTrue(isElementDisplayed(HomePage.ACCOUNT_LINK));

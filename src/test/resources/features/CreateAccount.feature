@@ -1,21 +1,22 @@
 @Regression
+
+@CreateNewAccount
 Feature: Create new account in Retail app and validate
 
   Background: validate title and navigate to sign in page
-    Then validate the top left corner "TEKSCHOOL"
-    When user click on sign in link
+    When user click on "Sign in" link
     Then validate user is in "Sign in" page
-
-  @CreateNewAccount
-  Scenario: Create new Account and validate the account
-    When user click on Create New Account button
+    When user click on "Create New Account" link
     Then validate user is in "Sign Up" page
-    When user enter "Morteza" "mory.sh@gmail.com" "Anything@123" "Anything@123" and click on Sign Up
+
+
+  Scenario: Create new Account and validate the account
+    When user enter "Morteza" and "random" and "Anything@123" and "Anything@123"
+    When user click on "Sign Up" button
     Then validate account successfully created
 
-  @CreateNewAccount1
+
   Scenario: Create new account with existing email and validate error
-      When user click on Create New Account button
-      Then validate user is in "Sign Up" page
-      When user enter existing data "mory" "mory123@gmail.com" "Mory@123" "Mory@123" and click on Sign Up
-      Then user should see "this email is already exist, please use another email address" error message
+    When user enter "Morteza" and "mory123@gmail.com" and "Anything@123" and "Anything@123"
+    When user click on "Sign Up" button
+    Then user should be able to see "this email is already exist, please use another email address" error message

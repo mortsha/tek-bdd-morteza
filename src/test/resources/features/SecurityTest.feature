@@ -3,17 +3,19 @@ Feature: Security test with valid and invalid credentials
 
   Background: validate title and navigate to sign in page
     Then validate the top left corner "TEKSCHOOL"
-    When user click on sign in link
+    When user click on "Sign in" link
     Then validate user is in "Sign in" page
 
   @positive
   Scenario: Navigate to sign in page with valid credentials and success login
-    When user enter "mory123@gmail.com" and "Mory@123" and click on login
+    When user enter "mory123@gmail.com" and "Mory@123"
+    When user click on "Login" button
     Then user should be able to see "account" link
 
   @negative
   Scenario Outline: Negative testing with credentials
-    When user enter "<username>" and "<password>" and click on login
+    When user enter "<username>" and "<password>"
+    When user click on "Login" button
     Then user should be able to see "<errorMessage>" error message
     Examples:
       | username                | password  | errorMessage               |
