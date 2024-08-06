@@ -1,4 +1,4 @@
-@smoke @Regression
+@Smoke @Regression
 Feature: This feature is to Navigate to Home page of Retail app
 @homeLogo
   Scenario: validate top left corner logo

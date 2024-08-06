@@ -1,4 +1,4 @@
-@smoke @Regression
+@Smoke @Regression
 Feature: Security test with valid and invalid credentials
 
   Background: validate title and navigate to sign in page
