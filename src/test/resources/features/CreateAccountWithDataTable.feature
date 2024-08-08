@@ -42,4 +42,20 @@ Feature: Create new account in Retail app and validate
     When user click on "Sign Up" button
     Then validate account successfully created
 
+  @ErrorListAsMap
+  Scenario: Validate error messages in Sign up page using map
+      When user click on "Sign Up" button
+      Then user should see the errors in each field
+        | Name             | Name is a required field     |
+        | Email            | Email is a required field    |
+        | Password         | Password is a required field |
+        | Confirm Password | Confirm Password is a required field |
 
+  @ErrorListAsList
+  Scenario: Validate error messages in Sign up page using list
+    When user click on "Sign Up" button
+    Then validate error messages
+      | Name is a required field             |
+      | Email is a required field            |
+      | Password is a required field         |
+      | Confirm Password is a required field |
