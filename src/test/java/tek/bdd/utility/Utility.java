@@ -47,10 +47,12 @@ public class Utility extends BaseSetup {
     }
 
     public boolean isElementEnabled(By locator) {
+        LOGGER.info("Element Enabled: {} ",locator);
         return waitToBeVisible(locator).isEnabled();
     }
 
     public boolean isElementDisplayed(By locator) {
+        LOGGER.info("Element Displayed: {} ",locator);
         return waitToBeVisible(locator).isDisplayed();
     }
 
@@ -69,6 +71,7 @@ public class Utility extends BaseSetup {
 
     public void sendTextWithClearField(By locator, String text) {
         clearField(locator);
+        LOGGER.info("Clear and Send text {} to locator {} ", text, locator);
         waitToBeVisible(locator).sendKeys(text);
     }
 
@@ -76,4 +79,7 @@ public class Utility extends BaseSetup {
         waitToBeVisible(locator).clear();
     }
 
+    public String getElementValue(By locator){
+        return waitToBeVisible(locator).getAttribute("value");
+    }
 }
