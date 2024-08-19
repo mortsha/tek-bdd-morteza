@@ -37,22 +37,24 @@ public class Utility extends BaseSetup {
 
     public void sendText(By locator, String text) {
         LOGGER.info("Sending text {} to locator {} ", text, locator);
-        waitToBeVisible(locator).sendKeys(text);
+        WebElement element = waitToBeVisible(locator);
+        element.clear();
+        element.sendKeys(text);
     }
 
 
     public String getElementText(By locator) {
-        LOGGER.info("Getting the text of Element {} ",locator);
+        LOGGER.info("Getting the text of Element {} ", locator);
         return waitToBeVisible(locator).getText();
     }
 
     public boolean isElementEnabled(By locator) {
-        LOGGER.info("Element Enabled: {} ",locator);
+        LOGGER.info("Element Enabled: {} ", locator);
         return waitToBeVisible(locator).isEnabled();
     }
 
     public boolean isElementDisplayed(By locator) {
-        LOGGER.info("Element Displayed: {} ",locator);
+        LOGGER.info("Element Displayed: {} ", locator);
         return waitToBeVisible(locator).isDisplayed();
     }
 
@@ -69,17 +71,8 @@ public class Utility extends BaseSetup {
         return getWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 
-    public void sendTextWithClearField(By locator, String text) {
-        clearField(locator);
-        LOGGER.info("Clear and Send text {} to locator {} ", text, locator);
-        waitToBeVisible(locator).sendKeys(text);
-    }
 
-    public void clearField(By locator){
-        waitToBeVisible(locator).clear();
-    }
-
-    public String getElementValue(By locator){
+    public String getElementValue(By locator) {
         return waitToBeVisible(locator).getAttribute("value");
     }
 }

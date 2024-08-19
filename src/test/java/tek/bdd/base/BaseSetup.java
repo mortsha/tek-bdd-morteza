@@ -4,13 +4,10 @@ import dev.failsafe.internal.util.Durations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-
+import tek.bdd.browsers.BaseBrowser;
+import tek.bdd.browsers.ChromeBrowser;
+import tek.bdd.browsers.EdgeBrowser;
+import tek.bdd.browsers.FirefoxBrowser;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,7 +18,8 @@ import java.util.Properties;
 public class BaseSetup {
     private static WebDriver driver;
     private final Properties properties;
-    private static final Logger LOGGER= LogManager.getLogger(BaseSetup.class);
+    private static final Logger LOGGER = LogManager.getLogger(BaseSetup.class);
+
     public WebDriver getDriver() {
         return driver;
     }
@@ -51,23 +49,20 @@ public class BaseSetup {
         // to open a Chrome browser in headless mode
         String browserType = properties.getProperty("ui.browser");
         boolean isHeadless = Boolean.parseBoolean(properties.getProperty("ui.browser.headless"));
-        LOGGER.info("Running on browser {} and isHeadless {}" ,browserType,isHeadless);
+        LOGGER.info("Running on browser {} and isHeadless {}", browserType, isHeadless);
 
-        if (browserType.equalsIgnoreCase("chrome")) {
-            ChromeOptions options = new ChromeOptions();
-            if(isHeadless) options.addArguments("--headless");
-            driver = new ChromeDriver(options);
-        } else if (browserType.equalsIgnoreCase("edge")) {
-            EdgeOptions options = new EdgeOptions();
-            if(isHeadless) options.addArguments("--headless");
-            driver = new EdgeDriver(options);
-        } else if (browserType.equalsIgnoreCase("firefox")) {
-            FirefoxOptions options = new FirefoxOptions();
-            if(isHeadless) options.addArguments("--headless");
-            driver = new FirefoxDriver(options);
-        } else {
+        BaseBrowser browser;
+        if (browserType.equalsIgnoreCase("chrome"))
+            browser = new ChromeBrowser();
+         else if (browserType.equalsIgnoreCase("firefox"))
+            browser = new FirefoxBrowser();
+         else if (browserType.equalsIgnoreCase("edge"))
+            browser = new EdgeBrowser();
+         else
             throw new RuntimeException("Wrong browser type");
-        }
+
+
+        driver = browser.openBrowser(isHeadless);
 
         String url = properties.getProperty("ui.url");
         driver.get(url);
