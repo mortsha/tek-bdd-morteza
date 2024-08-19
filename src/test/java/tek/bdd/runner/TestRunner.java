@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = "@UserStory6", // tags of our scenario
+        tags = "@UserStory8", // tags of our scenario
         features = "classpath:features", // directory of our feature files
         glue = "tek.bdd.steps", // package of our steps
         dryRun = false, // make sure every step has their annotation on it.

@@ -2,7 +2,8 @@ Feature: Navigate to Retail login with credentials update phone
 
   Background: Login to retail app with credentials
     When user click on "Sign in" link
-    When user enter "mory123@gmail.com" and "Mory@123"
+    When user enter "mory123@gmail.com" on "Email" field
+    When user enter "Mory@123" on "Password" field
     When user click on "Login" button
     When user click on "Account" link
 

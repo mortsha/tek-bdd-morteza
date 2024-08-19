@@ -24,6 +24,9 @@ public class Utility extends BaseSetup {
     private WebElement waitToBeClickable(By locator) {
         return getWait().until(ExpectedConditions.elementToBeClickable(locator));
     }
+    private WebElement waitToBeClickable(WebElement element) {
+        return getWait().until(ExpectedConditions.elementToBeClickable(element));
+    }
 
     private WebElement waitToBeVisible(By locator) {
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -31,9 +34,14 @@ public class Utility extends BaseSetup {
     }
 
     public void clickOnElement(By locator) {
-        LOGGER.info("Clicking on Element {} ", locator);
         waitToBeClickable(locator).click();
+        LOGGER.info("Clicking on Element {} ", locator);
     }
+    public void clickOnElement(WebElement element) {
+        waitToBeClickable(element).click();
+        LOGGER.info("Clicking on Element {} ", element);
+    }
+
 
     public void sendText(By locator, String text) {
         LOGGER.info("Sending text {} to locator {} ", text, locator);
