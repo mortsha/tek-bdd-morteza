@@ -1,6 +1,5 @@
 package tek.bdd.base;
 
-import dev.failsafe.internal.util.Durations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +9,6 @@ import tek.bdd.browsers.EdgeBrowser;
 import tek.bdd.browsers.FirefoxBrowser;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;

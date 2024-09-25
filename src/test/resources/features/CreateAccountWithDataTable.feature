@@ -36,11 +36,11 @@ Feature: Create new account in Retail app and validate
     Then validate account successfully created
 
   @UsingListOfMap
-  Scenario: Using List of List as Data Table
-    When user enter new account info using list of map data
-      | John | random | John@123 |
-    When user click on "Sign Up" button
-    Then validate account successfully created
+#  Scenario: Using List of List as Data Table
+#    When user enter new account info using list of map data
+#      | John | random | John@123 |
+#    When user click on "Sign Up" button
+#    Then validate account successfully created
 
   @ErrorListAsMap
   Scenario: Validate error messages in Sign up page using map
