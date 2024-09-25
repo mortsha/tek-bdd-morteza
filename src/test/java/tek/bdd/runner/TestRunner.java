@@ -16,7 +16,8 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE, // method names as camel case
         plugin = {
                 "pretty",
-                "html:target/cucumber_report/index.html"
+                "html:target/cucumber_report/index.html",
+                "json:target/jsonReports/report.json"
                 // our plugins
         }
 )
