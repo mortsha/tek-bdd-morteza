@@ -63,6 +63,7 @@ public class BaseSetup {
         driver = browser.openBrowser(isHeadless);
 
         String url = properties.getProperty("ui.url");
+        LOGGER.debug("Using URL {}", url);
         driver.get(url);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
